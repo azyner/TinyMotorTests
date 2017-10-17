@@ -165,8 +165,8 @@ for filename in file_list:
 
 
 output_file("summary.html")
-p_dis = figure(title="Altitude Plots")
-p_vel = figure(title="Velocity Plots")
+p_dis = figure(title="Altitude Plots", x_axis_label='Time (seconds)', y_axis_label='Altitude (metres)',)
+p_vel = figure(title="Velocity Plots", x_axis_label='Time (seconds)', y_axis_label='Vertical Speed (m/s)',)
 plot_colors = ['#1f77b4',
     '#ff7f0e',
     '#2ca02c',
@@ -189,7 +189,7 @@ p_dis.legend.location = "bottom_right"
 
 label_str = "Best Velocity at 3m Altitude:\r\n"
 for key, value in best_dict.iteritems():
-    label_str += str(key) + ': ' + str(value) + "\r\n"
+    label_str += str(key) + ': ' + str(value) + " m/s \r\n"
 summary_box = PreText(text=label_str)
 
 show(layout([[p_vel,p_dis],[widgetbox(summary_box, width=800)]]))
